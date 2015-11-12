@@ -1,0 +1,14 @@
+%h1 Create New Project
+
+= form_for @project do
+
+  = label :project, :name, 'Name'
+  = text_field :project, 'name'
+  
+  = label :project, :description, 'Description'
+  = text_field :project, 'description'
+  
+  = label :project, :repo, 'Repo'
+  = text_field :project, 'repo'
+  
+  = submit_tag 'Create'
