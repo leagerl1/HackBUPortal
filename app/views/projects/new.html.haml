@@ -2,6 +2,11 @@
 
 = form_for @project do
 
+  - if @project.errors.any?
+    %ul
+    - @project.errors.full_messages.each do |msg|
+      %li= msg
+
   = label :project, :name, 'Name'
   = text_field :project, 'name'
   

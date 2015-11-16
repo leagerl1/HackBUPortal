@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
         format.html { redirect_to edit_project_path(@project), notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else
-        format.html { render :new }
+        format.html { render :new}
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
