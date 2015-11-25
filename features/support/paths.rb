@@ -26,6 +26,9 @@ module NavigationHelpers
       
     when /^"(.*)"'s edit page$/
       edit_project_path(Project.find_by_name($1))
+      
+    when /^"(.*)"'s project page$/
+      project_path(Project.find_by_name($1))
     
 
     # Add more mappings here.

@@ -1,19 +1,21 @@
 %h1 Create New Project
 
-= form_for @project do
+= render 'form'
 
-  - if @project.errors.any?
-    %ul
-    - @project.errors.full_messages.each do |msg|
-      %li= msg
+// = form_for @project do
 
-  = label :project, :name, 'Name'
-  = text_field :project, 'name'
+//   - if @project.errors.any?
+//     %ul
+//     - @project.errors.full_messages.each do |msg|
+//       %li= msg
+
+//   = label :project, :name, 'Name'
+//   = text_field :project, 'name'
   
-  = label :project, :description, 'Description'
-  = text_field :project, 'description'
+//   = label :project, :description, 'Description'
+//   = text_field :project, 'description'
   
-  = label :project, :repo, 'Repo'
-  = text_field :project, 'repo'
+//   = label :project, :repo, 'Repo'
+//   = text_field :project, 'repo'
   
-  = submit_tag 'Create'
+//   = submit_tag 'Create'

@@ -15,5 +15,9 @@
   <%= @project.repo %>
 </p>
 
+<% @project.skills.each do |skill| %>
+  <%= skill.name %>
+<% end %>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

@@ -20,6 +20,10 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
+    <%= f.autocomplete_field :skills, autocomplete_skill_name_projects_path, :value => nil, :placeholder => "Skills",
+  'data-delimiter' => ',', :multiple => true%>
+  </div>
+  <div class="field">
     <%= f.label :repo %><br>
     <%= f.text_field :repo %>
   </div>

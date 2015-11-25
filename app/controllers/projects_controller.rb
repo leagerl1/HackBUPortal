@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+ 
+  autocomplete :skill, :name, :full => true
 
   # GET /projects
   # GET /projects.json
@@ -42,6 +44,11 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1.json
   def update
     respond_to do |format|
+      if params[:project][:skills]
+        skill_names = params[:project][:skills][0].split(",")
+        params[:project][:skills] = Skill.where(name: skill_names)
+      end
+      
       if @project.update(project_params)
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
@@ -70,6 +77,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :description, :repo)
+      params.require(:project).permit(:name, :description, :repo, :skills_attributes => [:title, :id])
     end
 end

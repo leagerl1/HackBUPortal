@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   root :to => 'projects#index'
   
   devise_for :users#, :controllers => {:registrations => "registrations"}
-  resources :projects
+  resources :projects do
+    get :autocomplete_skill_name, :on => :collection
+    get :skills, :on => :member
+  end
   resources :users
   
   # The priority is based upon order of creation: first created -> highest priority.

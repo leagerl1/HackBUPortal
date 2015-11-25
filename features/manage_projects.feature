@@ -16,6 +16,7 @@ Feature: Post project
     Then I should be on "Project Test"'s edit page
     And I should see "Project was successfully created"
     
+    
   Scenario: Post a project with only required fields filled in
     Given I am on the new project page
     When I fill in the following:
@@ -50,7 +51,19 @@ Feature: Post project
     
     # TODO - Add tests for adding skills once that feature is ready
     
-    
-  
+
+  ######################  Tests for Project page display ####################
+  Scenario: Information about a particular project is displayed correctly
+    Given the following projects:
+      | name         | description      | repo           |
+      | Project Test | Test description | www.myrepo.com |
+    And the following users:
+      | email            | password  | name  | last_name  |
+      | email1@test.com  | password1 | name1 | last_name1 |
+    And I am on "Project Test"'s project page
+    When I add     
+    Then I should see "Project Test"
+    And I should see "Test description"
+    And I should see "www.myrepo.com"
     
     
