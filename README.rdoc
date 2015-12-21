@@ -1,28 +1,32 @@
-== README
+= Getting Setup with HackBU Portal
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== Dependencies
 
-Things you may want to cover:
+<b>Ruby Version: </b> 2.2.1
+<b>Rails Version: </b> 4.2.4
 
-* Ruby version
+We suggest using Cloud9 cloud development platform in order to avoid issues with these dependencies on your local setup.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+== Installation and Getting Started with Development
+    1. Clone the repo: git clone https://github.com/leagerl1/HackBUPortal.git
+    2. Install project dependencies: Inside the hackbu_portal directory run the command <tt>bundle install</tt>
+    3. To run the app run the command <tt>rails s</tt> (for local dev) or <tt>rails s -p $PORT -b $IP</tt> (for c9 dev)
+    4. To run tests run the commands <tt>rake spec</tt> for rsepc or <tt>rake cucumber</tt> for cucumber
+    
+== Previous Team
+    1. Lucas Eager Leavitt
+        - {Edit Profile}[https://www.pivotaltracker.com/story/show/106176446]
+        - {Attach Profile Photo}[https://www.pivotaltracker.com/story/show/107452370]
+        - {Signup/Login}[https://www.pivotaltracker.com/story/show/106176762]
+    2. Jackson Hoffmann
+        - {Post Project}[https://www.pivotaltracker.com/story/show/106176890]
+        - {Ask User to Join Project}[https://www.pivotaltracker.com/story/show/106176854]
+        - {Edit Project}[https://www.pivotaltracker.com/story/show/110512422]
+    3. Alex Terela
+        - {Project Tagging}[https://www.pivotaltracker.com/story/show/106176824]
+    4. Ben Berger
+        - {Project Feed}[https://www.pivotaltracker.com/story/show/106176648]
+        - {Ask to Join project}[https://www.pivotaltracker.com/story/show/106177076]
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
