@@ -31,6 +31,9 @@ module NavigationHelpers
     when /^the new project page$/
       new_project_path
       
+    when /^the edit profile page$/
+      edit_user_path(User.find_by_email("email1@test.com").id)
+      
     when /^"(.*)"'s edit page$/
       edit_project_path(Project.find_by_name($1))
       

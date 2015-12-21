@@ -1,7 +1,7 @@
-Feature: Manage users
-  In order to [goal]
-  [stakeholder]
-  wants [behaviour]
+Feature: Register user
+  As a prospective user
+  So that I can use the app's features
+  I want to create a profile
   
   Scenario: Register new user
     Given I am on the new user page
@@ -47,16 +47,3 @@ Feature: Manage users
     When I follow "Profile"
     Then I should be on the user's profile page
 
-#  Scenario: Delete user
-#    Given the following users:
-#      |email|password|name|last_name|
-#      |email 1|password 1|name 1|last_name 1|
-#      |email 2|password 2|name 2|last_name 2|
-#      |email 3|password 3|name 3|last_name 3|
-#      |email 4|password 4|name 4|last_name 4|
-#    When I delete the 3rd user
-#    Then I should see the following users:
-#      |Email|Password|Name|Last name|
-#      |email 1|password 1|name 1|last_name 1|
-#      |email 2|password 2|name 2|last_name 2|
-#      |email 4|password 4|name 4|last_name 4|

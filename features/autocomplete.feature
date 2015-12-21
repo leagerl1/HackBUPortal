@@ -1,11 +1,11 @@
 Feature: autocomplete search skills
-  In order to [goal]
-  [stakeholder]
-  wants [behaviour]
+  As a project creator
+  So that I can filter projects
+  I want to be given suggested search terms
+  
   Background: a user has been added to the database and logged in
     Given I am a new authenticated user
   
-  @javascript
   Scenario: Autocomplete search on projects feed
     Given the following skills:
         |name|
