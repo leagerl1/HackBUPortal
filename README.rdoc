@@ -10,8 +10,9 @@ We suggest using Cloud9 cloud development platform in order to avoid issues with
 == Installation and Getting Started with Development
     1. Clone the repo: git clone https://github.com/leagerl1/HackBUPortal.git
     2. Install project dependencies: Inside the hackbu_portal directory run the command <tt>bundle install</tt>
-    3. To run the app run the command <tt>rails s</tt> (for local dev) or <tt>rails s -p $PORT -b $IP</tt> (for c9 dev)
-    4. To run tests run the commands <tt>rake spec</tt> for rsepc or <tt>rake cucumber</tt> for cucumber
+    3. Migrate the database with the command rake db:migrate
+    4. To run the app run the command <tt>rails s</tt> (for local dev) or <tt>rails s -p $PORT -b $IP</tt> (for c9 dev)
+    5. To run tests run the commands <tt>rake spec</tt> for rsepc or <tt>rake cucumber</tt> for cucumber
     
 == Previous Team
     1. Lucas Eager Leavitt
