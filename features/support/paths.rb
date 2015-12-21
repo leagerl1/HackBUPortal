@@ -15,8 +15,15 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+    
+    when /^the login page$/
+      new_user_session_path
+    
     when /the new user page/
       new_user_registration_path
+    
+    when /the user's profile page/
+      '/users/1'
       
     when /the project feed page/
       projects_path

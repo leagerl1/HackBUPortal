@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :request_to_owner, :ask_to_join]
   before_action :authenticate_user!
  
   autocomplete :skill, :name, :full => true
@@ -46,7 +46,8 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if params[:project][:skills]
         skill_names = params[:project][:skills][0].split(",")
-        params[:project][:skills] = Skill.where(name: skill_names)
+        skills = Skill.where(:name => skill_names).except(@project.skills)
+        @project.skills << skills
       end
       
       if @project.update(project_params)
@@ -68,6 +69,24 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def request_to_owner
+    notification = Notification.create(:message => "#{current_user.name} #{current_user.last_name} would like to join #{@project.name}.")
+    @project.owner.notifications << notification
+    respond_to do |format|
+      format.js {}
+      format.html {redirect_to projects_path, notice: "Request sent"}
+    end
+  end
+  
+  def ask_to_join
+    notification = Notification.create(:message => "#{current_user.name} #{current_user.last_name} would like you to join #{@project.name}.")
+    User.find(params[:user_id]).notifications << notification
+    respond_to do |format|
+      format.js {}
+      format.html {redirect_to projects_path, notice: "Request sent"}
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -77,6 +96,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :description, :repo, :skills_attributes => [:title, :id])
+      params.require(:project).permit(:name, :description, :repo, :skill_ids => [])#, :skills_attributes => [:name, :id])
     end
 end

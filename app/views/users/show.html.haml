@@ -1,0 +1,13 @@
+.row
+  .col-xs-6.col-md-4
+    =image_tag current_user.avatar.url(:medium), :class => "img-responsive img-thumbnail"
+    %h2= "#{@user.name}  #{@user.last_name}" 
+    %p= @user.email
+    
+    = link_to 'Edit', edit_user_path(@user)
+    |
+    = link_to 'Back', users_path 
+  
+  .col-xs-12.col-sm-6.col-md-8
+    %h3.text-center="#{@user.name}'s Projects"
+    = render @user.projects

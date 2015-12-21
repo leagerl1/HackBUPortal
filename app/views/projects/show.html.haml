@@ -1,0 +1,26 @@
+%p#notice= notice
+
+%p
+  %strong Name:
+  = @project.name
+  
+%p
+  %strong Description:
+  = @project.description
+  
+%p
+  %strong Repo:
+  = @project.repo
+  
+%p
+  %strong Members:
+- @project.users.each do |user|
+  %p= user.name + " " + user.last_name
+  
+%p
+  %strong Skills:
+- @project.skills.each do |skill|
+  %p= skill.name
+  
+= link_to 'Edit', edit_project_path(@project)
+= link_to 'Back', projects_path

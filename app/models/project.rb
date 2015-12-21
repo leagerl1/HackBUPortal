@@ -7,4 +7,10 @@ class Project < ActiveRecord::Base
     validates_presence_of :name
     validates_presence_of :description
     validates_uniqueness_of :name
+    
+    
+    def owner
+      User.find(self.owner_id)
+    end
+    
 end

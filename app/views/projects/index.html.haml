@@ -1,6 +1,15 @@
-%p#notice = flash[:notice]
+%p#notice= flash[:notice]
 
-<h1>Listing Projects</h1>
+.search
+  = form_tag "/", :class => "col-md-6" do
+    .input-group
+      = autocomplete_field_tag(:search, params[:search], autocomplete_skill_name_projects_path, options = {'data-delimiter' => ",", :multiple => true, :id => "skills_search", :class => "form-control", :placeholder => "Search projects by skills"})
+      %span.input-group-btn
+        %button.btn.btn-default Go
+        
+        
+%br
 
-= render @projects
+.feed
+  = render @projects
 

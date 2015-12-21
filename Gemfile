@@ -11,6 +11,11 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
+# Use bootstrap for styling
+gem 'bootstrap-sass', '~> 3.3.6'
+# Use paperclip for file uploads for pro pics
+gem "paperclip", "~> 4.3"
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -31,8 +36,14 @@ gem 'devise'
 # Autocomplete feature for project tagging
 gem 'rails4-autocomplete'
 
+# jquery-token-input for autocomplete finalization
+#gem 'rails-jquery-tokeninput', '~> 0.2.6'
+
 # Use haml in views
 gem 'haml'
+
+# add nested form support
+gem 'nested_form'
 
 group :development, :test do
   gem 'database_cleaner'
@@ -42,8 +53,10 @@ group :development, :test do
 end
 
 group :test do
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
+  gem 'selenium-webdriver'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 # Use ActiveModel has_secure_password

@@ -26,6 +26,19 @@ Feature: Post project
     Then I should be on "Project Test"'s edit page
     And I should see "Project was successfully created"
     
+  Scenario: Edit an existing project's fields
+    Given the following projects:
+      |name|description|
+      |ProjectTest|This project tests the fields|
+    And I am on "ProjectTest"'s edit page
+    When I fill in the following:
+      | Name        | ProjectTest |
+      | Description | This project tests the fields yet again |
+      | Repo        | https://github.com/leagerl1/HackBUPortal |
+    And I press "Update"
+    Then I should be on "ProjectTest"'s project page
+    And I should see "Project was successfully updated"
+    
   Scenario: Project creation fails because of missing name
     Given I am on the new project page
     When I fill in "Description" with "This project tests the fields"
@@ -59,11 +72,14 @@ Feature: Post project
       | Project Test | Test description | www.myrepo.com |
     And the following users:
       | email            | password  | name  | last_name  |
-      | email1@test.com  | password1 | name1 | last_name1 |
+      | email2@test.com  | password1 | name1 | last_name1 |
+    And I have added "name1" as a member to the project "Project Test"      
     And I am on "Project Test"'s project page
-    When I add     
     Then I should see "Project Test"
     And I should see "Test description"
     And I should see "www.myrepo.com"
+    And I should see "name1"
+    And I should see "last_name1"
     
+     
     

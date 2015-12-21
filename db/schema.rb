@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119005354) do
+ActiveRecord::Schema.define(version: 20151214041056) do
+
+  create_table "notifications", force: :cascade do |t|
+    t.string  "message"
+    t.integer "user_id"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +24,7 @@ ActiveRecord::Schema.define(version: 20151119005354) do
     t.string   "repo"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "owner_id"
   end
 
   create_table "projects_skills", id: false, force: :cascade do |t|
@@ -57,6 +63,10 @@ ActiveRecord::Schema.define(version: 20151119005354) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

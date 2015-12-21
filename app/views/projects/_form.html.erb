@@ -1,4 +1,4 @@
-<%= form_for(@project) do |f| %>
+<%= nested_form_for(@project) do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -20,12 +20,14 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.autocomplete_field :skills, autocomplete_skill_name_projects_path, :value => nil, :placeholder => "Skills",
-  'data-delimiter' => ',', :multiple => true%>
+    <%= f.autocomplete_field :skills, autocomplete_skill_name_projects_path, :placeholder => "Skills", 'data-delimiter' => ",", :multiple => true%>
   </div>
   <div class="field">
     <%= f.label :repo %><br>
     <%= f.text_field :repo %>
+  </div>
+  <div class='field'>
+    <%= f.label :members %><br>
   </div>
   <div class="actions">
     <%= f.submit %>

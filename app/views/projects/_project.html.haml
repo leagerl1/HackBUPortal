@@ -1,25 +1,21 @@
-%h3= project.name
+.panel.panel-success
+    .panel-heading
+        %h3.panel-title=  link_to project.name, project
+    .panel-body
+        .media
+            .media-left.media-middle
+                = render project.users, :project_id => project.id
+            .media-body
+                = project.description
+            .media-right.media-middle
+                .btn.btn-success
+                    = link_to "Request to Join", request_to_owner_path(project.id)
 
+%p
 
-
-//.box{:id => "names"} =project.users
-//%h5 =project.users
-
-//    =project.users
-
-//.box{:id => "des"} %project.description
-
-
-/ <div class = "box" id = "des">
-//     <p>
-//         <%= projects.description %>
-//     </p>
-// </div>
-// <div class = "box" id = "add">
-//     <p> "+" </p>
-// </div>
-
-
+//#names= project.users.map(&:name)
+// #des= project.description
+//#add= link_to "ADD", "http://hackbu-portal-leagerl1.c9.io/projects"
 
 //<table>
 //    <tr>

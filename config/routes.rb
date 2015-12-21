@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     get :skills, :on => :member
   end
   resources :users
+  resources :notifications
+  
+  get '/projects/request_to_owner/:id', to:'projects#request_to_owner', :as => :request_to_owner
+  get '/projects/ask_to_join/:id', to:'projects#ask_to_join', :as => :ask_to_join
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
